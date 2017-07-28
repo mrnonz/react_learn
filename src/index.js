@@ -11,3 +11,6 @@ console.log(x2)
 
 const even = numbers.filter(number => number % 2 == 0)
 console.log(even)
+
+const sum = numbers.reduce((total, number) => (total + number))
+console.log(sum)

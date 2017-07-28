@@ -89,9 +89,6 @@ class App extends React.Component {
   componentDidMount() {
     const itemsRef = firebase.database().ref('items')
     itemsRef.on('value', (snapshot) => {
-      console.log(snapshot)
-      console.log(snapshot.val())
-
       const items = snapshot.val()
       let newItems = []
       for (let item in items) {

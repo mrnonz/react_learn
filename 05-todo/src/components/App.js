@@ -13,7 +13,7 @@ const TodoItem = ({ text }) => (
 
 const TodoList = ({ items }) => (
   <ul>
-    {items.map(item => <TodoItem text={item} />)}
+    {items.map((item, i) => <TodoItem key={i} text={item} />)}
   </ul>
 )
 

@@ -49,7 +49,11 @@ class AvList extends React.Component {
   }
 
   componentDidMount() {
-    
+    fetch('https://api.avgle.com/v1/videos/5?limit=5')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(responseJson)
+      })
   }
 
   render() {

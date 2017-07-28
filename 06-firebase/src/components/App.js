@@ -49,10 +49,14 @@ class AvList extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://api.avgle.com/v1/videos/5?limit=5')
+    fetch('https://api.avgle.com/v1/videos/0?limit=5')
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(responseJson)
+        const videos = responseJson.response.videos
+        const newState = videos.map((v) => v.title)
+        this.setState({
+          titles: newState
+        })
       })
   }
 

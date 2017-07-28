@@ -1,10 +1,20 @@
 import React from 'react'
 
 class NewItem extends React.Component {
+  state = {
+    text: ''
+  }
+
+  onChange = (e) => {
+    this.setState({
+      text: e.target.value
+    })
+  }
+
   render() {
     return (
       <div>
-        <input type="text" />
+        <input type="text" onChange={this.onChange} value={this.state.text} />
         <button>Add</button>
       </div>
     )

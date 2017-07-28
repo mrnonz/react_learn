@@ -1,48 +1,53 @@
 import React from 'react'
 
-class NewItem extends React.Component {
+class NewTodo extends React.Component {
   state = {
     text: ''
   }
 
-  onChange = (e) => {
+  handleChange = (e) => {
     this.setState({
       text: e.target.value
     })
   }
 
-  onClick = () => {
-    this.props.addItem(this.state.text)
-    this.setState({
-      text: ''
-    })
+  handleOnClick = () => {
+    const { addItem } = this.props
+    if (this.state.text !== '') {
+      addItem(this.state.text)
+      this.setState({
+        text: ''
+      })
+    }
   }
 
   render() {
     return (
       <div>
-        <input type="text" onChange={this.onChange} value={this.state.text} />
-        <button onClick={this.onClick}>Add</button>
+        <input type="text" value={this.state.text} onChange={this.handleChange} />
+        <button onClick={this.handleOnClick}>Add</button>
       </div>
     )
   }
 }
 
-const TodoItem = ({ text }) => (
-  <li>{text}</li>
-)
+class TodoList extends React.Component {
+  render() {
+    const { items } = this.props
 
-const TodoList = ({ items }) => (
-  <ul>
-    {items.map((item, i) => <TodoItem key={i} text={item} />)}
-  </ul>
-)
+    return (
+      <ul>
+        {items.map((item, i) => <li key={i}>{item}</li>)}
+      </ul>
+    )
+  }
+}
 
-const MainPanel = ({addItem, items}) => (
+const MainPanel = (props) => (
   <div>
-    <h1>Todo</h1>
-    <NewItem addItem={addItem}/>
-    <TodoList items={items}/>
+    <h1>ToDo!</h1>
+    <NewTodo addItem={props.addItem} />
+    <TodoList items={props.todo.items} />
   </div>
 )
 

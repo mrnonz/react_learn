@@ -11,21 +11,28 @@ const TodoItem = ({ text }) => (
   <li>{text}</li>
 )
 
-const TodoList = () => (
+const TodoList = ({ items }) => (
   <ul>
-    <TodoItem text="Clean room"/>
-    <TodoItem text="Wash dishes"/>
-    <TodoItem text="Eat burger"/>
+    {items.map(item => <TodoItem text={item} />)}
   </ul>
 )
 
 class App extends React.Component {
+
+  state = {
+    items: [
+      "Clean room",
+      "Wash dishes",
+      "Eat burger"
+    ]
+  }
+
   render() {
     return (
       <div>
         <h1>Todo</h1>
         <NewItem />
-        <TodoList />
+        <TodoList items={this.state.items}/>
       </div>
     )
   }

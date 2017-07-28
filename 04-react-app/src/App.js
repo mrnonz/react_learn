@@ -6,14 +6,24 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      text: 'Hello from the other site. (state)'
+      count: 0
     }
+  }
+
+  onClick() {
+    this.setState({
+      count: this.state.count + 1
+    })
   }
 
   render() {
     const {text, name} = this.props
     return (
-      <h1>{text}, {name} -- {this.state.text}</h1>
+      <div>
+        <h1>{text}, {name}</h1>
+        <div>{this.state.count}</div>
+        <button onClick={this.onClick}>Count</button>
+      </div>
     )
   }
 }

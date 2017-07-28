@@ -4,6 +4,6 @@
 - 02-webpack
 - 03-react
 - 04-react-app
-- 05-todo : Use create-react-app
+- 05-todo : Use create-react-app, Redux
 ***
 Build by me

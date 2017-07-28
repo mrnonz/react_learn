@@ -3,17 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      count: 0
-    }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     count: 0
+  //   }
+  // }
+
+  state = {
+    count: 0
   }
 
   onClick = () => {
-    // this.setState({
-    //   count: this.state.count + 1
-    // })
     this.setState(
       preState => ({
         count: preState.count + 1

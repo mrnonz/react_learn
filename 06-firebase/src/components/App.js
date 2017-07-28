@@ -1,4 +1,5 @@
 import React from 'react'
+import firebase from '../firebase'
 
 class NewItem extends React.Component {
   state = {
@@ -55,6 +56,23 @@ class App extends React.Component {
 
     this.setState({
       items: newState
+    })
+  }
+
+  componentDidMount() {
+    const itemsRef = firebase.database().ref('items')
+    itemsRef.on('value', (snapshot) => {
+      console.log(snapshot)
+      console.log(snapshot.val())
+
+      const items = snapshot.val()
+      let newItems = []
+      for (let item in items) {
+        newItems.push(items[item].text)
+      }
+      this.setState({
+        items: newItems
+      })
     })
   }
 

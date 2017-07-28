@@ -39,6 +39,28 @@ const TodoList = ({ items }) => (
   </ul>
 )
 
+const AvItem = ({ title }) => (
+  <li>{title}</li>
+)
+
+class AvList extends React.Component {
+  state = {
+    titles: []
+  }
+
+  componentDidMount() {
+    
+  }
+
+  render() {
+    return (
+      <ul>
+        {this.state.titles.map((title, i) => <AvItem key={i} title={title} />)}
+      </ul>
+    )
+  }
+}
+
 class App extends React.Component {
 
   state = {
@@ -87,6 +109,7 @@ class App extends React.Component {
         <h1>Todo</h1>
         <NewItem addItem={this.addItem}/>
         <TodoList items={this.state.items}/>
+        <AvList />
       </div>
     )
   }

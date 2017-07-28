@@ -2,5 +2,13 @@
   "name": "02-webpack",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "babel-node ./src/index.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "webpack": "^3.4.1"
+  }
 }

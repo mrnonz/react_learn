@@ -8,10 +8,9 @@ class App extends React.Component {
     this.state = {
       count: 0
     }
-    this.onClick = this.onClick.bind(this)
   }
 
-  onClick() {
+  onClick = () => {
     this.setState({
       count: this.state.count + 1
     })

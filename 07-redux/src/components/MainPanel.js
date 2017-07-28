@@ -38,36 +38,12 @@ const TodoList = ({ items }) => (
   </ul>
 )
 
-class MainPanel extends React.Component {
-
-  state = {
-    items: [
-      "Clean room",
-      "Wash dishes",
-      "Eat burger",
-      "Drink!"
-    ]
-  }
-
-  addItem = (item) => {
-
-    let newState = this.state.items
-    newState.push(item)
-
-    this.setState({
-      items: newState
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Todo</h1>
-        <NewItem addItem={this.addItem}/>
-        <TodoList items={this.state.items}/>
-      </div>
-    )
-  }
-}
+const MainPanel = ({addItem, items}) => (
+  <div>
+    <h1>Todo</h1>
+    <NewItem addItem={addItem}/>
+    <TodoList items={items}/>
+  </div>
+)
 
 export default MainPanel
